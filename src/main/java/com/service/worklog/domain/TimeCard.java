@@ -22,5 +22,5 @@ public class TimeCard {
 
   private LocalDate date;
 
-  private Double hours;
+  private Double timeSpent;
 }

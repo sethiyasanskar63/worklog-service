@@ -1,16 +1,18 @@
 package com.service.worklog.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Setter
-@Entity(name = "ticket")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
 @Table(name = "ticket", uniqueConstraints = {
-    @UniqueConstraint(name = "uc_ticket_ticketid_name", columnNames = {"ticketId", "name"})
+    @UniqueConstraint(name = "uc_ticket_name", columnNames = {"name"})
 })
 public class Ticket {
 
@@ -21,7 +23,4 @@ public class Ticket {
   private String name;
 
   private String description;
-
-  @OneToMany(mappedBy = "ticket", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-  private List<TimeCard> timeCards;
 }

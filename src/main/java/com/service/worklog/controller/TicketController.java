@@ -8,6 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/tickets")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -18,6 +20,11 @@ public class TicketController {
   @Autowired
   public TicketController(TicketService ticketService) {
     this.ticketService = ticketService;
+  }
+
+  @GetMapping("/all")
+  public List<Ticket> findAll(Pageable pageable) {
+    return ticketService.findAll();
   }
 
   @GetMapping
