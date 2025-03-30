@@ -16,7 +16,9 @@ public class Ticket {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long ticketId;
 
+  @Column(nullable = false, length = 100)
   private String name;
 
+  @Column(nullable = false, length = 100)
   private String description;
 }
