@@ -8,8 +8,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class TicketService {
 
@@ -18,10 +16,6 @@ public class TicketService {
   @Autowired
   public TicketService(TicketRepository ticketRepository) {
     this.ticketRepository = ticketRepository;
-  }
-
-  public List<Ticket> findAll() {
-    return ticketRepository.findAll();
   }
 
   public Page<Ticket> getTickets(Specification<Ticket> specification, Pageable pageable) {
