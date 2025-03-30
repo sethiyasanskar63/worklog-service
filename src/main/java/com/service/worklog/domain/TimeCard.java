@@ -17,10 +17,12 @@ public class TimeCard {
   private Long timeCardId;
 
   @ManyToOne
-  @JoinColumn(name = "ticket_id", referencedColumnName = "ticketId")
+  @JoinColumn(name = "ticket_id", referencedColumnName = "ticketId", nullable = false)
   private Ticket ticket;
 
+  @Column(nullable = false)
   private LocalDate date;
 
+  @Column(nullable = false)
   private Double timeSpent;
 }
